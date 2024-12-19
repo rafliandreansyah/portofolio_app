@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Portfolio extends Model
 {
@@ -16,7 +17,10 @@ class Portfolio extends Model
         'project_name',
         'image',
         'link_portfolio',
-        'portofolio_tool_id',
+    ];
+
+    protected $casts = [
+        'portofolioTools' => 'array',
     ];
 
     public function user(): BelongsTo
@@ -26,6 +30,6 @@ class Portfolio extends Model
 
     public function tools(): BelongsToMany
     {
-        return $this->belongsToMany(Tool::class);
+        return $this->belongsToMany(Tool::class, 'portfolio_tools', 'portfolio_id', 'tool_id');
     }
 }

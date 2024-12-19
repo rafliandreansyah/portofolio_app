@@ -14,6 +14,7 @@ class ContentApp extends Model
         'content_key',
         'content_value',
         'content_image',
+        'user_id',
     ];
 
     public function user(): BelongsTo

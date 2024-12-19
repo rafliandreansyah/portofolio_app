@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('portfolio_tool', function (Blueprint $table) {
+        Schema::create('portfolio_tools', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('portfolio_id')->constrained();
             $table->foreignId('tool_id')->constrained();
             $table->timestamps();
