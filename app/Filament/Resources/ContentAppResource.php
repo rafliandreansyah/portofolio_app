@@ -19,7 +19,7 @@ class ContentAppResource extends Resource
 {
     protected static ?string $model = ContentApp::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'icon-body-text';
 
     protected static ?string $navigationLabel = 'Content';
 

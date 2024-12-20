@@ -19,7 +19,7 @@ class ToolResource extends Resource
 {
     protected static ?string $model = Tool::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'icon-tools';
 
     public static function form(Form $form): Form
     {
