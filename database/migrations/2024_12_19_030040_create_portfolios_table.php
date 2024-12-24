@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->nullOnDelete();
             $table->string('project_name');
             $table->string('image', 2048);
             $table->string('link_portfolio', 2048)->nullable();
