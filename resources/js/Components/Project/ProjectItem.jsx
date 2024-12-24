@@ -4,7 +4,7 @@ export default function ProjectItem({ href }) {
     return (
         <Link href={href} className="group">
             <div className="flex flex-col gap-3 items-center md:items-start">
-                <div className="rounded-lg max-w-96 aspect-[3/4] overflow-hidden hover:shadow-lg">
+                <div className="rounded-lg max-w-96 aspect-[3/4] overflow-hidden group-hover:shadow-lg transition">
                     <img
                         src="/images/project.png"
                         className="size-full max object-cover"

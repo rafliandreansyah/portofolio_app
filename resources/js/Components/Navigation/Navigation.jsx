@@ -1,16 +1,16 @@
 import { useState } from "react";
 
-export default function Navigation({ children, nav, onClick }) {
+export default function Navigation({ children, nav, handleShowNavigation }) {
     return (
         <>
             {/* Navigation medium */}
             <nav className="hidden md:flex invisible md:visible">
-                <ul className="md:flex gap-4 justify-end">{children}</ul>
+                <ul className="md:flex gap-10 justify-end">{children}</ul>
             </nav>
             {/* Navigation small */}
             {!nav ? (
                 <nav className="flex flex-col md:hidden">
-                    <button onClick={onClick}>
+                    <button onClick={handleShowNavigation}>
                         <svg
                             width="30"
                             height="30"
@@ -27,7 +27,10 @@ export default function Navigation({ children, nav, onClick }) {
                 </nav>
             ) : (
                 <nav className="h-[100vh] fixed left-0 top-0 w-full bg-white flex flex-col p-5 md:hidden">
-                    <button onClick={onClick} className="size-5 self-end mx-4">
+                    <button
+                        onClick={handleShowNavigation}
+                        className="size-5 self-end mx-4"
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 30 30"

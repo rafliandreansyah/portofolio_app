@@ -8,7 +8,7 @@ function HomePage() {
     return (
         <>
             {/* Heading Section */}
-            <section className="py-10 flex flex-col md:flex-row gap-10 md:gap-5 p-5 md:p-0 items-center justify-center">
+            <section className="py-10 mt-10 flex flex-col md:flex-row gap-10 md:gap-5 p-5 md:p-0 items-center justify-center">
                 <div className="flex flex-col gap-16 flex-1 order-last md:order-first items-center md:items-start">
                     <div className="flex flex-col gap-4 text-center md:text-start justify-center md:justify-start">
                         <h3 className="font-semibold text-xl">
@@ -23,10 +23,7 @@ function HomePage() {
                         </p>
                     </div>
 
-                    <Button
-                        title="Contact"
-                        className="bg-black hover:bg-primary"
-                    />
+                    <Button title="Contact" />
                 </div>
                 <div className="flex-1 flex items-center justify-center">
                     <img
@@ -64,7 +61,7 @@ function HomePage() {
                     <ProjectItem />
                 </div>
 
-                <Button title="See All" className="bg-black hover:bg-primary" />
+                <Button title="See All" />
             </section>
 
             {/* Contact Section */}
