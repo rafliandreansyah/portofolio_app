@@ -3,7 +3,7 @@ import NavigationItem from "../Navigation/NavigationItem";
 
 export default function Footer() {
     return (
-        <footer className="py-10 mt-32 w-full bg-light-grey left-0 right-0 flex flex-col items-center gap-8">
+        <footer className="py-10 mt-32 w-full bg-light-grey left-0 right-0 flex flex-col items-center gap-8 bottom-0">
             <img src="/images/logo.png" className="size-20" />
             <ul className="flex gap-5 items-center justify-center">
                 <NavigationItem title="About" />

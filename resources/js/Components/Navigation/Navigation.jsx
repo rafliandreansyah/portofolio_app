@@ -1,13 +1,6 @@
 import { useState } from "react";
 
-export default function Navigation({ children }) {
-    const [nav, setNav] = useState(false);
-
-    function handleShowNavigation() {
-        setNav((prevState) => {
-            return !prevState;
-        });
-    }
+export default function Navigation({ children, nav, onClick }) {
     return (
         <>
             {/* Navigation medium */}
@@ -17,7 +10,7 @@ export default function Navigation({ children }) {
             {/* Navigation small */}
             {!nav ? (
                 <nav className="flex flex-col md:hidden">
-                    <button onClick={handleShowNavigation}>
+                    <button onClick={onClick}>
                         <svg
                             width="30"
                             height="30"
@@ -34,10 +27,7 @@ export default function Navigation({ children }) {
                 </nav>
             ) : (
                 <nav className="h-[100vh] fixed left-0 top-0 w-full bg-white flex flex-col p-5 md:hidden">
-                    <button
-                        onClick={handleShowNavigation}
-                        className="size-5 self-end mx-4"
-                    >
+                    <button onClick={onClick} className="size-5 self-end mx-4">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 30 30"
