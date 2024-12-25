@@ -29,14 +29,12 @@ class ContentAppResource extends Resource
             ->schema([
                 Section::make()
                     ->schema([
-                        Grid::make(2)
-                            ->schema([
-                                Forms\Components\TextInput::make('content_key')
-                                    ->required()
-                                    ->maxLength(255),
-                                Forms\Components\TextInput::make('content_value')
-                                    ->maxLength(255),
-                            ]),
+                        Forms\Components\TextInput::make('content_key')
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpanFull(),
+                        Forms\Components\Textarea::make('content_value')
+                            ->columnSpanFull(),
                         Forms\Components\FileUpload::make('content_image')
                             ->image()
                             ->directory('app-content')

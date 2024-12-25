@@ -42,8 +42,7 @@ class ToolResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('tool_name')
                     ->searchable(),
-                Tables\Columns\ImageColumn::make('tool_icon')
-                    ->searchable(),
+                Tables\Columns\ImageColumn::make('tool_icon'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

@@ -38,6 +38,8 @@ class PortfolioResource extends Resource
                 Forms\Components\TextInput::make('project_name')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('project_stack')
+                    ->maxLength(255),
                 Forms\Components\TextInput::make('link_portfolio')
                     ->required()
                     ->maxLength(2048),
@@ -59,6 +61,8 @@ class PortfolioResource extends Resource
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('project_name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('project_stack')
                     ->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
                 Tables\Columns\TextColumn::make('created_at')

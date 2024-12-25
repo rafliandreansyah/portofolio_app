@@ -17,6 +17,7 @@ class Portfolio extends Model
         'project_name',
         'image',
         'link_portfolio',
+        'project_stack'
     ];
 
     protected $casts = [

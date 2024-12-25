@@ -1,10 +1,18 @@
-import SkillItem from "@/Components/Skill/SkillItem";
-import MainLayout from "../../Layout/MainLayout";
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
-import ProjectItem from "@/Components/Project/ProjectItem";
-import Button from "../../Components/Button/Button";
+import MainLayout from "@/Layout/MainLayout";
+import SectionTitle from "@/Components/Section/SectionTitle";
+import Section from "@/Components/Section/Section";
+import Button from "@/Components/Button/Button";
+import Project from "@/Components/Project/Project";
+import Skill from "@/Components/Skill/Skill";
+import { Link } from "@inertiajs/react";
 
-function HomePage() {
+function HomePage({ projects, skills, content }) {
+    function handleNewPage(url) {
+        if (!url) {
+            return;
+        }
+        window.open(url, "_blank", "noreferrer");
+    }
     return (
         <>
             {/* Heading Section */}
@@ -12,66 +20,93 @@ function HomePage() {
                 <div className="flex flex-col gap-16 flex-1 order-last md:order-first items-center md:items-start">
                     <div className="flex flex-col gap-4 text-center md:text-start justify-center md:justify-start">
                         <h3 className="font-semibold text-xl">
-                            Web Dev | Mobile Dev
+                            {content.job ? content.job : "Web Dev | Mobile Dev"}
                         </h3>
                         <h1 className="font-semibold text-6xl">
-                            Software Engineer
+                            {content.jobPosition
+                                ? content.jobPosition
+                                : "Software Engineer"}
                         </h1>
                         <p className="text-base">
-                            This is a template Figma file, turned into code
-                            using Anima. Learn more at AnimaApp.com
+                            {content.jobDescription
+                                ? content.jobDescription
+                                : ""}
                         </p>
                     </div>
 
-                    <Button title="Contact" />
+                    <Button
+                        title="Contact"
+                        onClick={() =>
+                            handleNewPage(
+                                content.contactUrl
+                                    ? content.contactUrl
+                                    : undefined
+                            )
+                        }
+                    />
                 </div>
                 <div className="flex-1 flex items-center justify-center">
                     <img
-                        src="/images/profile.png"
-                        className="size-full max object-contain"
+                        src={
+                            content.userImage
+                                ? content.userImage
+                                : "/images/profile.png"
+                        }
+                        className="size-full max object-contain max-w-96"
                     />
                 </div>
             </section>
 
             {/* Service Section */}
-            <section className="py-28 flex flex-col gap-20 items-center">
+            <Section className="py-28 flex flex-col gap-20 items-center">
                 <SectionTitle
                     title="Service"
-                    description="Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Aliquet donec morbi convallis pretium"
+                    description={
+                        content.serviceDescription
+                            ? content.serviceDescription
+                            : ""
+                    }
                 />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-5 px-2">
-                    <SkillItem />
-                    <SkillItem />
-                    <SkillItem />
-                </div>
-            </section>
+                <Skill skills={skills} />
+            </Section>
 
             {/* Last Project */}
-            <section className="py-28 flex flex-col gap-20 items-center">
+            <Section className="py-28 flex flex-col gap-20 items-center">
                 <SectionTitle
                     title="Latest Project"
-                    description="Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Aliquet donec morbi convallis pretium"
+                    description={
+                        content.latestProjectDescription
+                            ? content.latestProjectDescription
+                            : ""
+                    }
                 />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10">
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                    <ProjectItem />
-                </div>
 
-                <Button title="See All" />
-            </section>
+                <Project projects={projects} />
+
+                <Link href="/project">
+                    <Button title="See All" />
+                </Link>
+            </Section>
 
             {/* Contact Section */}
             <section className="py-28 flex flex-col gap-16 items-center">
                 <SectionTitle
                     title="Lets Code Together"
-                    description="Lorem ipsum dolor sit amet consectetur. Tristique amet sed massa nibh lectus netus in. Aliquet donec morbi convallis pretium"
+                    description={
+                        content.contactDescription
+                            ? content.contactDescription
+                            : ""
+                    }
                 />
 
-                <Button title="Contact Me" />
+                <Button
+                    title="Contact Me"
+                    onClick={() =>
+                        handleNewPage(
+                            content.contactUrl ? content.contactUrl : undefined
+                        )
+                    }
+                />
             </section>
         </>
     );

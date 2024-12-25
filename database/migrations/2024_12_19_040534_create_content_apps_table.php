@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('content_apps', function (Blueprint $table) {
             $table->id();
             $table->string('content_key')->unique();
-            $table->string('content_value')->nullable();
+            $table->longText('content_value')->nullable();
             $table->string('content_image')->nullable();
             $table->foreignId('user_id')->constrained()->nullOnDelete();
             $table->timestamps();

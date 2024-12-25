@@ -1,9 +1,15 @@
 import MainLayout from "@/Layout/MainLayout";
 import Button from "@/components/Button/Button";
 
-function ContactPage() {
+function ContactPage({ content }) {
+    function handleNewPage(url) {
+        if (!url) {
+            return;
+        }
+        window.open(url, "_blank", "noreferrer");
+    }
     return (
-        <div className="flex flex-col md:flex-row gap-10 mt-10 p-5 items-center">
+        <div className="flex flex-col md:flex-row gap-10 md:gap-20 mt-10 p-5 items-center justify-center">
             <div className="rounded-xl">
                 <img
                     src="/images/bg-contact.png"
@@ -12,14 +18,20 @@ function ContactPage() {
             </div>
             <div className="flex flex-col gap-5">
                 <h2 className="font-semibold text-5xl">Contact Me</h2>
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                     <div className="flex gap-2 items-center">
                         <img
-                            src="/images/gmail.svg"
+                            src={
+                                content.imageContact
+                                    ? content.imageContact
+                                    : "/images/gmail.svg"
+                            }
                             alt=""
                             className="size-6"
                         />
-                        <p>rafliandreansyah957@gmail.com</p>
+                        <p>
+                            {content.emailContact ? content.emailContact : ""}
+                        </p>
                     </div>
                     <div className="flex gap-2 items-center">
                         <img
@@ -27,10 +39,22 @@ function ContactPage() {
                             alt=""
                             className="size-6"
                         />
-                        <p>(+62) 81232720821</p>
+                        <p>
+                            {content.phoneContact ? content.phoneContact : ""}
+                        </p>
                     </div>
                 </div>
-                <Button title="Whatsapp" className="mt-10" />
+                <Button
+                    title="Whatsapp"
+                    className="mt-10"
+                    onClick={() =>
+                        handleNewPage(
+                            content.whatsappUrl
+                                ? content.whatsappUrl
+                                : undefined
+                        )
+                    }
+                />
             </div>
         </div>
     );

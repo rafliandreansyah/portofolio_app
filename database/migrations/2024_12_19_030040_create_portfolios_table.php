@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->nullOnDelete();
             $table->string('project_name');
+            $table->string('project_stack')->nullable();
             $table->string('image', 2048);
             $table->string('link_portfolio', 2048)->nullable();
             $table->timestamps();

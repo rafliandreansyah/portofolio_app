@@ -3,7 +3,7 @@ import Navigation from "../Navigation/Navigation";
 import NavigationItem from "../Navigation/NavigationItem";
 import { useState } from "react";
 
-export default function Header() {
+export default function Header({ title }) {
     const [nav, setNav] = useState(false);
 
     function handleShowNavigation() {
@@ -30,16 +30,19 @@ export default function Header() {
                     title="About"
                     href="/"
                     onClick={handleShowNavigation}
+                    active={title === "home" ? true : false}
                 />
                 <NavigationItem
                     title="Project"
                     href="/project"
                     onClick={handleShowNavigation}
+                    active={title === "project" ? true : false}
                 />
                 <NavigationItem
                     title="Contact"
                     href="/contact"
                     onClick={handleShowNavigation}
+                    active={title === "contact" ? true : false}
                 />
             </Navigation>
         </header>
