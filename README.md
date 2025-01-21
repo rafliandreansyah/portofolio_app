@@ -6,6 +6,7 @@ This is a Laravel, React, and Inertia.js-based portfolio application designed to
 - Backend: Laravel
 - Dashboard: Filament
 - Frontend: React with Inertia.js
+- Tailwind CSS
 - Data management with database migrations
 - User authentication
 - Responsive design for desktop and mobile devices
