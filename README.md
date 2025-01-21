@@ -2,6 +2,9 @@
 
 This is a Laravel, React, and Inertia.js-based portfolio application designed to showcase your profile and works. This documentation will guide you through the installation and running process on your local machine.
 
+![Portfolio App 2](https://github.com/user-attachments/assets/dc4986a6-727c-46e7-a6ab-3448def765a3)
+
+
 ## Features
 - Backend: Laravel
 - Dashboard: Filament
